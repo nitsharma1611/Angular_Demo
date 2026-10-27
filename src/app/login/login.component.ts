@@ -1,10 +1,31 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  
 })
-export class LoginComponent {
 
+export class LoginComponent {
+form: any = {
+  data: {},
+  errorMessage: ''
 }
+
+constructor(private router: Router) { }
+
+signIn(){
+
+  console.log('login: ',this.form.data.login);
+console.log('Password: ',this.form.data.password)
+
+if(this.form.data.login === 'admin' && this.form.data.password === 'admin'){    
+this.router.navigateByUrl('/welcome');}
+else{
+  this.form.errorMessage = 'Invalid username or password. Please try again.  ';
+}
+
+
+
+}}
