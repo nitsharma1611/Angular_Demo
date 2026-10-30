@@ -8,6 +8,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HttpserviceService } from './httpservice.service';
+import { HttpClientModule } from '@angular/common/http';
+import { RoleComponent } from './role/role.component';
+import { StudentComponent } from './student/student.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +20,17 @@ import { SignupComponent } from './signup/signup.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    RoleComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+ HttpClientModule
   ],
-  providers: [],
+  providers: [HttpserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

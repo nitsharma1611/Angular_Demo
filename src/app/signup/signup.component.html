@@ -1,35 +1,42 @@
-    <div align="center">
-    <h1>SignUp</h1>
+<div align="center">
+    <h1>User Registration</h1>
+    <h2 style="color: red;">{{ form.errorMessage }}</h2>
+    <h2 style="color: green;">{{ form.successMessage }}</h2>
     <form (submit)="signUp()">
 
         <table>
 
             <tr>
-                <td>First Name:</td>
-                <td><input type="text" name="fName" [(ngModel)]="form.data.fName"  placeholder="Enter FirstName"></td>
-<td>{{form.errorMessage.fName}}</td>
-            </tr>
-<tr>
-                <td>Last Name:</td>
-                <td><input type="text" name="lName" [(ngModel)]="form.data.lName" placeholder="Enter last Name"></td>
-            <td>{{form.errorMessage.lName}}</td>
-            </tr>
-
-<tr>
-                <td>Login:</td>
-                <td><input type="email" name="login" [(ngModel)]="form.data.login" placeholder="Enter login"></td>
-            <td>{{form.errorMessage.login}}</td>
+                <th>First Name</th>
+                <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName"
+                        placeholder="enter your first name"></td>
+                <td style="color: rgb(117, 106, 106);">{{form.inputerror.firstName}}</td>
             </tr>
 
             <tr>
-<td>Password:</td>
-                <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
-            <td>{{form.errorMessage.password}}</td>
+                <th>Last Name</th>
+                <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName"
+                        placeholder="enter your last name"></td>
+                <td style="color:rgb(117, 106, 106);">{{form.inputerror.lastName}}</td>
             </tr>
 
             <tr>
-                <td></td>
-               <td> <button type="submit">SignUp</button></td></tr>
+                <th>Login</th>
+                <td><input type="email" name="login" [(ngModel)]="form.data.login" placeholder="enter you login"></td>
+                <td style="color:rgb(117, 106, 106);">{{form.inputerror.login}}</td>
+            </tr>
+
+            <tr>
+                <th>Password</th>
+                <td><input type="password" name="password" [(ngModel)]="form.data.password"
+                        placeholder="enter you password"></td>
+                <td style="color:rgb(117, 106, 106);">{{form.inputerror.password}}</td>
+            </tr>
+
+            <tr>
+                <th></th>
+                <td><input type="submit" value="signUp"></td>
+            </tr>
 
         </table>
 

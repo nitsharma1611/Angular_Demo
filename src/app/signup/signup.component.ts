@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { HttpserviceService } from '../httpservice.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html'
@@ -8,28 +8,27 @@ export class SignupComponent {
 
   form: any = {
     data: {},
-    errorMessage: {}
+    successMessage: '',
+    errorMessage: '',
+    inputerror: {}
   }
-constructor(private router: Router) { }
+constructor(private httpService: HttpserviceService) { }
+
 signUp(){
-this.form.errorMessage = {};
+this.form.successMessage = '';
+this.form.errorMessage = '';
+this.form.inputerror = {};
+console.log("form data: ", this.form.data);
 
+this.httpService.post('http://localhost:8080/Auth/signUp', this.form.data, (response: any) => {
+  console.log("response: ", response);
 
-if(!this.form.data.fName || !this.form.data.fName.trim()){
-   this.form.errorMessage.fName = 'Please enter First Name';
-}
-if(!this.form.data.lName || !this.form.data.lName.trim()){
-    this.form.errorMessage.lName  = 'Please enter Last Name';
-}
-if(!this.form.data.login || !this.form.data.login.trim()){
-    this.form.errorMessage.login = 'Please enter Login';
-}
-if(!this.form.data.password || !this.form.data.password.trim()){
-    this.form.errorMessage.password  = 'Please enter Password';
-}
+  if (response.success === false && response.result.inputerror) {
+    this.form.inputerror = response.result.inputerror;
+  } 
+  if (response.success === true && response.result.message) {
+    this.form.successMessage = response.result.message;
+  }                   
+});
 
-console.log('First Name: ',this.form.data.fName);
-console.log('Last Name: ',this.form.data.lName);
-console.log('login: ',this.form.data.login);
-console.log('Password: ',this.form.data.password)
 }}

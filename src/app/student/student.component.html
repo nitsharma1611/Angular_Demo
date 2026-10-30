@@ -1,0 +1,81 @@
+
+<div align="center">
+    <h1>Add Student </h1>
+
+    <h2 style="color: red;">{{ form.errorMessage }}</h2>
+    <h2 style="color: green;">{{ form.successMessage }}</h2>
+
+    <form (submit)="studentSave()">
+
+        <table>
+
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" name="firstName"
+                        [(ngModel)]="form.data.firstName"
+                        placeholder="Enter First Name">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.firstName}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Last Name:</td>
+                <td>
+                    <input type="text" name="lastName"
+                        [(ngModel)]="form.data.lastName"
+                        placeholder="Enter Last Name">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.lastName}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>DOB:</td>
+                <td>
+                    <input type="date" name="dob"
+                        [(ngModel)]="form.data.dob">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.dob}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Mobile Number:</td>
+                <td>
+                    <input type="text" name="mobileNo"
+                        [(ngModel)]="form.data.mobileNo"
+                        placeholder="Enter Mobile Number">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.mobileNo}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="email" name="email"
+                        [(ngModel)]="form.data.email"
+                        placeholder="Enter Email">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.email}}
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+</div>
