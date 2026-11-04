@@ -1,3 +1,4 @@
+
 <div align="center">
     <h1>Role</h1>
     <h2 style="color: red;">{{ form.errorMessage }}</h2>
@@ -14,7 +15,7 @@
 
             <tr>
                 <td>Description:</td>
-                <td><input type="description" name="description" [(ngModel)]="form.data.description"
+                <td><input type="text" name="description" [(ngModel)]="form.data.description"
                         placeholder="Enter Description"></td>
                 <td style="color:rgb(117, 106, 106);">{{form.inputerror.description}}</td>
             </tr>

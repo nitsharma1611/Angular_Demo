@@ -16,8 +16,14 @@ export class HttpserviceService {
     }
     );
   }
-get(endpoint: any, callback: any) {
+  get(endpoint: any, callback: any) {
+    this.httpClient.get(endpoint).subscribe((response: any) => {
+      callback(response);
+    }, (error: any) => {
+      callback.error('Error occurred during GET request:', error);
+      callback(null, error);
+    }
+    );
+  }
 
-}
-  
 }

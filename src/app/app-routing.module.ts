@@ -5,6 +5,10 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { RoleComponent } from './role/role.component';
 import { StudentComponent } from './student/student.component';
+import { RoleListComponent } from './role/role-list.component';
+import { StudentListComponent } from './student/student-list.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list.component';
 
 const routes: Routes = [
 
@@ -28,12 +32,34 @@ const routes: Routes = [
   {
     path: "role",
     component: RoleComponent
-  },  {
+  },
+  {
+    path: "roleList",
+    component: RoleListComponent
+  },
+  {
     path: "student",
     component: StudentComponent
   }
-
-
+  ,
+  {
+    path: "studentList",
+    component: StudentListComponent
+  }
+  ,
+  {
+    path: "user",
+    component: UserComponent
+  },
+  {
+    path: "role/:id",
+    component: RoleComponent
+  }
+  ,
+  {
+    path: "userList",
+    component: UserListComponent
+  }
 ];
 
 @NgModule({

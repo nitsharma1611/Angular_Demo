@@ -2,20 +2,21 @@
     <h1>Login</h1>
     <h2 style="color: red;">{{ form.errorMessage }}</h2>
     <h2 style="color: green;">{{ form.successMessage }}</h2>
-    <form (submit)="signIn()"  >
+    <form (submit)="signIn()">
 
         <table>
 
             <tr>
                 <td>UserName:</td>
-                <td><input type="text" name="login" [(ngModel)]="form.data.login"   placeholder="Enter UseName"></td>
-           <td style="color:rgb(117, 106, 106);">{{form.inputerror.login}}</td>
+                <td><input type="text" name="login" [(ngModel)]="form.data.login" placeholder="Enter UseName"></td>
+                <td style="color:rgb(117, 106, 106);">{{form.inputerror.login}}</td>
             </tr>
 
             <tr>
-<td>Password:</td>
-                <td><input type="password" name="password"  [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
-<td style="color:rgb(117, 106, 106);">{{form.inputerror.password}}</td>
+                <td>Password:</td>
+                <td><input type="password" name="password" [(ngModel)]="form.data.password"
+                        placeholder="Enter Password"></td>
+                <td style="color:rgb(117, 106, 106);">{{form.inputerror.password}}</td>
             </tr>
 
             <tr>
@@ -28,3 +29,4 @@
     </form>
 
 </div>
+<app-footer></app-footer>

@@ -1,0 +1,50 @@
+<div align="center">
+
+    <table>
+        <tr>
+                <th>First Name</th>
+                <td><input type="text" name="firstName" [(ngModel)]="form.searchParam.firstName" placeholder="search by first name"></td>
+            <th>Last Name</th>
+                <td><input type="text" name="lastName" [(ngModel)]="form.searchParam.lastName" placeholder="search by last name"></td>
+            <th>Email</th>
+                <td><input type="text" name="email" [(ngModel)]="form.searchParam.email" placeholder="search by email"></td>
+
+            <td><button (click)="search()">Search</button></td>
+
+        </tr>
+    </table>
+
+    <table width="100%" border="1px">
+
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+                <th>Mobile Number</th>
+                    <th>Email</th>
+        
+        
+        </tr>
+
+        <tr *ngFor="let student of form.list">
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.dob}}</td>
+            <td>{{student.mobileNo}}</td>
+            <td>{{student.email}}</td>
+        </tr>
+
+    </table>
+
+    <table width="100%">
+
+        <tr>
+            <td><button [disabled]="this.form.pageNo == 0" (click)="previous()">previous</button></td>
+            <td align="right"><button [disabled]="form.list.length < 5" (click)="next()">next</button></td>
+        </tr>
+
+    </table>
+
+</div>

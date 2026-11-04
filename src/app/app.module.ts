@@ -12,6 +12,10 @@ import { HttpserviceService } from './httpservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RoleComponent } from './role/role.component';
 import { StudentComponent } from './student/student.component';
+import { RoleListComponent } from './role/role-list.component';
+import { StudentListComponent } from './student/student-list.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { StudentComponent } from './student/student.component';
     LoginComponent,
     SignupComponent,
     RoleComponent,
-    StudentComponent
+    StudentComponent,
+    RoleListComponent,
+    StudentListComponent,
+    UserComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,

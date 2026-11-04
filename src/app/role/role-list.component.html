@@ -1,0 +1,42 @@
+<div align="center">
+<h1>Role List</h1>
+<h2 style="color: green;">{{form.successMessage}}</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><input type="text" name="name" [(ngModel)]="form.searchParam.name" placeholder="search by name"></td>
+            <td><button (click)="search()">Search</button></td>
+        </tr>
+    </table>
+
+    <table width="100%" border="1px">
+
+        <tr>
+            <th>Delete</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Edit</th>
+        </tr>
+
+        <tr *ngFor="let role of form.list">
+            <td><input type="checkbox" (click)="onClickCheckBox(role.id)"></td>
+            <td>{{role.id}}</td>
+            <td>{{role.name}}</td>
+            <td>{{role.description}}</td>
+            <td><a (click)="edit( '/role/' +  role.id)">Edit</a></td>
+        </tr>
+
+    </table>
+
+    <table width="100%">
+
+        <tr>
+            <td><button [disabled]="this.form.pageNo == 0" (click)="previous()">previous</button></td>
+            <td><button (click)="delete()">delete</button></td>
+            <td align="right"><button [disabled]="form.list.length < 5" (click)="next()">next</button></td>
+        </tr>
+
+    </table>
+
+</div>

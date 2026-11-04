@@ -19,10 +19,6 @@ export class LoginComponent {
   constructor(private httpService: HttpserviceService, private router: Router) { }
 
   signIn() {
-    this.form.successMessage = '';
-    this.form.errorMessage = '';
-    this.form.inputerror = {};
-    console.log("form data: ", this.form.data);
 
     this.httpService.post('http://localhost:8080/Auth/login', this.form.data, (response: any) => {
       console.log("response: ", response);
@@ -35,10 +31,12 @@ export class LoginComponent {
         this.form.errorMessage = response.result.message;
       }
 
+      if (response.success === true) {
+        localStorage.setItem('firstName', response.result.data.firstName);
+        localStorage.setItem('roleName', response.result.data.roleName);
+        localStorage.setItem('id', response.result.data.id);
 
 
-      if (response.success === true && response.result.message) {
-        this.form.successMessage = response.result.message;
         this.router.navigateByUrl('welcome');
       }
     });

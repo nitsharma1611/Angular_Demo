@@ -1,0 +1,69 @@
+
+<div align="center">
+    <h1>Add User </h1>
+
+    <h2 style="color: red;">{{ form.errorMessage }}</h2>
+    <h2 style="color: green;">{{ form.successMessage }}</h2>
+
+    <form (submit)="userSave()">
+
+        <table>
+
+            <tr>
+                <td>First Name:</td>
+                <td>
+                    <input type="text" name="firstName"
+                        [(ngModel)]="form.data.firstName"
+                        placeholder="Enter First Name">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.firstName}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Last Name:</td>
+                <td>
+                    <input type="text" name="lastName"
+                        [(ngModel)]="form.data.lastName"
+                        placeholder="Enter Last Name">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.lastName}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Login:</td>
+                <td>
+                    <input type="email" name="login"
+                        [(ngModel)]="form.data.login">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.login}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>Password:</td>
+                <td>
+                    <input type="password" name="password"
+                        [(ngModel)]="form.data.password"
+                        placeholder="Enter Password">
+                </td>
+                <td style="color:rgb(117, 106, 106);">
+                    {{form.inputerror.password}}
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+</div>
